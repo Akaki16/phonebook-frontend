@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: whitesmoke;
+    letter-spacing: 1.2px;
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.filter {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.filter input {
+    width: 350px;
+    height: 45px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid #333;
+    border-radius: 4px;
+    font-size: 19px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-form {
+    transform: translateY(40px);
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    background: lightslategray;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.add-form
+.form-group
+label {
+    margin: 5px;
+    font-size: 19px;
+    color: #fff;
+}
+
+.add-form
+.form-group
+input {
+    padding: 10px;
+    font-size: 19px;
+    outline: none;
+    border: 2px solid #333;
+    margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-form
+.form-group
+button {
+    padding: 10px;
+    margin: 5px;
+    background: rgb(17, 115, 122);
+    font-size: 19px;
+    outline: none;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-form
+.form-group
+button:hover {
+    background: rgb(51, 129, 116);
+}
+
+.list {
+    transform: translateY(70px);
+    width: 500px;
+    height: auto;
+    padding: 25px;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 6px;
+}
+
+.list h3 {
+    margin: 10px;
+}
+
+.filtered-list {
+    transform: translateY(20px);
+    width: 500px;
+    height: auto;
+    padding: 25px;
+    margin: 0 auto;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+.filtered-list h3 {
+    margin: 10px;
+}
+
+@media (max-width: 636px) {
+    .filter input {
+        width: 90%;
+    }
+
+    .add-form {
+        width: 90%;
+    }
+
+    .list {
+        width: 90%;
+    }
+
+    .filtered-list {
+        width: 90%;
+    }
+}
