@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const Person = ({ person }) => {
+const Person = ({ person, onDelete }) => {
     return (
-        <h3>{person.name}: {person.number}</h3>
+        <h3>{person.name}: {person.number} <button onClick={() => onDelete(person.id)}>Delete</button></h3>
     );
 }
 

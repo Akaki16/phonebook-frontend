@@ -2,7 +2,7 @@ import React from 'react';
 import Person from './Person';
 import PropTypes from 'prop-types';
 
-const Persons = ({ persons }) => {
+const Persons = ({ persons, onDelete }) => {
     return (
         <div className='list'>
             <h2>Numbers</h2>
@@ -11,6 +11,7 @@ const Persons = ({ persons }) => {
             {persons.map((person) => {
                 return (
                     <Person
+                        onDelete={onDelete}
                         key={person.id}
                         person={person}
                     />
