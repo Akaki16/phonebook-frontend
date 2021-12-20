@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Filter from './components/Filter';
 import AddPersonForm from './components/AddPersonForm';
 import Persons from './components/Persons';
+import Message from './components/Message';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -12,6 +13,8 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('');
   const [filteredName, setFilteredName] = useState('');
   const [filteredPersons, setFilteredPersons] = useState([]);
+  const [message, setMessage] = useState('');
+  const [messageColor, setMessageColor] = useState('');
 
   useEffect(() => {
     personService
@@ -38,6 +41,21 @@ const App = () => {
           .update(persons[i].id, changedPerson)
           .then(response => {
             setPersons(persons.map(person => person.id !== persons[i].id ? person : response.data));
+            setMessage(`${person.name}'s number updated successfuly`);
+            setMessageColor('rgb(91, 165, 128)');
+            setTimeout(() => {
+              setMessage('');
+              setMessageColor('');
+            }, 3000);
+          })
+          .catch(err => {
+            setMessage(`${person.name} was already removed from the server`);
+            setMessageColor('red');
+            // remove the message after 3 seconds
+            setTimeout(() => {
+              setMessage('');
+              setMessageColor('');
+            }, 3000);
           });
         }
         setPersons([...persons]);
@@ -46,7 +64,13 @@ const App = () => {
     }
     // validate if the user has filled both fields
     if (!newName || !newNumber) {
-      alert('Please fill in the all fields');
+      setMessage('please fill in both fields');
+      setMessageColor('red');
+      // clear the message after 3 seconds
+      setTimeout(() => {
+        setMessage('');
+        setMessageColor('');
+      }, 3000);
     }
 
     if (newName !== '' && newNumber !== '') {
@@ -54,6 +78,13 @@ const App = () => {
       .create(personObj)
       .then(response => {
         setPersons([...persons, response.data]);
+        setMessage('New person added successfuly');
+        setMessageColor('rgb(91, 165, 128)');
+        // clear the message after 3 seconds
+        setTimeout(() => {
+          setMessage('');
+          setMessageColor('');
+        }, 3000);
       });
       setNewName('');
       setNewNumber('');
@@ -91,8 +122,13 @@ const App = () => {
       personService
       .deleteObject(id, person)
       .then(response => {
-        console.log(`${person.name} deleted successfuly`);
         setPersons(persons.filter(person => person.id !== id));
+        setMessage(`${person.name} deleted successfuly`);
+        setMessageColor('rgb(91, 165, 128)');
+        setTimeout(() => {
+          setMessage('');
+          setMessageColor('');
+        }, 3000);
       });
     }
   }
@@ -100,6 +136,10 @@ const App = () => {
   return (
     <div>
       <Header />
+      <Message
+        bgColor={messageColor}
+        text={message}
+      />
       <Filter
         value={filteredName}
         onChange={(e) => setFilteredName(e.target.value)}
