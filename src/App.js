@@ -120,7 +120,7 @@ const App = () => {
     const question = window.confirm(`Delete ${person.name}`);
     if (question) {
       personService
-      .deleteObject(id, person)
+      .deleteObject(id)
       .then(response => {
         setPersons(persons.filter(person => person.id !== id));
         setMessage(`${person.name} deleted successfuly`);
