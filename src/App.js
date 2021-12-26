@@ -85,6 +85,9 @@ const App = () => {
           setMessage('');
           setMessageColor('');
         }, 3000);
+      })
+      .catch(error => {
+        alert(error.response.data.error);
       });
       setNewName('');
       setNewNumber('');
