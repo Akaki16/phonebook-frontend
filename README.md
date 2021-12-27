@@ -6,7 +6,7 @@ This simple fullstack Phonebook app implements all of the basic crud operations:
 
 You can create contacts, update them and delete them.
 
-React and json-server were used to create this project
+MERN stack (MongoDB, Express, React, Node) were used to create this project
 
 ### Running documentation
 
@@ -14,12 +14,12 @@ React and json-server were used to create this project
 
 1) Open terminal in your operating system
 
-2) Go to the desktop: `cd Desktop`
+2) In the terminal type: `cd Desktop`
 
-3) Type: `git clone [repo link]` to clone this project
+3) clone this project: `git clone [repo link]`
 
 4) Go to the cloned project: `cd [cloned project]`
 
-5) Type: `npm run server` to start the json-server
+5) Type: `npm install`
 
-6) Type: `npm start` to open the project in the browser
+6) After running `npm install` type: `npm start` to start the application at localhost:3000
